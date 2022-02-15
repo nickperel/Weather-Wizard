@@ -1,5 +1,9 @@
-const apiKey = "4e8ea4c48fc1caa38029a76e8f4dcc2b"
-const apiUrl = "api.openweathermap.org/data/2.5/weather?q=London&appid=" + apiKey;
+const apiKey = "4e8ea4c48fc1caa38029a76e8f4dcc2b";
+
+
+function getWeather(cityName) {
+
+    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
 
     fetch(apiUrl)
     .then(function(response) {
@@ -11,3 +15,5 @@ const apiUrl = "api.openweathermap.org/data/2.5/weather?q=London&appid=" + apiKe
             console.log(data[i].local_names.ja);
         }
     });
+}
+
