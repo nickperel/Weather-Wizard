@@ -1,0 +1,15 @@
+.nav-styling {
+    font-size: 75px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.navbar {
+    justify-content: center;
+    background-color: aquamarine;
+}
+
+.search-h1 {
+    font-size: 30px;
+}

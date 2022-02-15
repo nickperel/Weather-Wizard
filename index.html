@@ -4,77 +4,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <nav class="navbar d-flex">
-        <span class="nav-styling bg-light">Weather Dashboard</span>
-    </nav>
-    <main class="main-container">
+    <main>
+        <!-- Header/Navbar goes here setup for future implementaion of nav btns-->
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo center">Weather Dashboard</a>
+            </div>
+        </nav>
+      
+        <!-- Page Layout here -->
         <div class="row">
-            <div class="col-4 bg-dark">
-                <p class="search-h1 text-info">Search for a City:</p>
-                <div class="search-inputs mb-3">
-                    <input id="city-search" type="text" class="form-control" placeholder="What city would you like to search for?">
-                    <div class="search-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search-location"></i>
-                        </button>
-                    </div>
+            <!-- City Search and Clear sections -->
+            <div class="col s12 m4 l3"> 
+                <div class="col" id="search-container">
+                    <form class="input-field">
+                        <i class="material-icons prefix">wb_sunny</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix" id="placeholder">City Name</label>
+                        <button class="btn" id="search" type="submit">Search</button>
+                        <button class="btn" id="clear" type="submit">Clear History</button>
+                    </form>
                 </div>
-                <button class="btn btn-primary mb-4" type="button" id="clear-btn">Clear Search History</button>
-                <form id="search-history"></form>
-            </div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-12 border m-2">
-                        <div class="row">
-                            <div class="col-12">
-                                <span id="city-name" class="city-name align-middle"></span>
-                                <img id="now-pic" src="" alt="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="temp"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="humidity"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="wind-speed"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="uv-index"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h2>5-Day Forecast</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col forecast bg-info mb-2"></div>
-                    <div class="col forecast bg-info mb-2"></div>
-                    <div class="col forecast bg-info mb-2"></div>
-                    <div class="col forecast bg-info mb-2"></div>
-                    <div class="col forecast bg-info mb-2"></div>
+
+                <!-- Recent Search Section -->
+                <div class="btn-container col">
                 </div>
             </div>
-        </div>
+  
+            <!-- Main Display -->
+            <div class="col s12 m7 l8 selected-city"> 
+                <h2 class="heading"><span id="jumbotron"></span>: <span id="today"></span> <img src="" class="heading-icon"></h2>
+                <p>Temp: <span id="main-temp"></span> °F</p>
+                <p>Wind: <span id="main-wind"></span> MPH</p>
+                <p>Humidity: <span id="main-humid"></span> %</p>
+                <span id="uv-background">UV Index: <span id="main-uv"></span></span>
+            </div>
+            
+            <!-- Five day forecast section -->
+            <div class="col s12 m7 l8 five-day-title">
+                <span>5 Day Forecast</span>
+            </div>
+            <div class="col s12 m7 l8"> 
+                <div class="row five-day">      
+                    <div class="card col s2 m2 l2 xl2 forecast">
+                        <p class="date">11/26/2021</p>
+                        <img src="" alt="">
+                        <p class="temp">Temp</p>
+                        <p class="wind">Wind</p>
+                        <p class="humid">Humidity</p>
+                    </div>
+                    <div class="card col s2 m2 l2 xl2 forecast">
+                        <p class="date">11/26/2021</p>
+                        <img src="" alt="">
+                        <p class="temp">Temp</p>
+                        <p class="wind">Wind</p>
+                        <p class="humid">Humidity</p>
+                    </div>
+                    <div class="card col s2 m2 l2 xl2 forecast">
+                        <p class="date">11/26/2021</p>
+                        <img src="" alt="">
+                        <p class="temp">Temp</p>
+                        <p class="wind">Wind</p>
+                        <p class="humid">Humidity</p>
+                    </div>
+                    <div class="card col s2 m2 l2 xl2 forecast">
+                        <p class="date">11/26/2021</p>
+                        <img src="" alt="">
+                        <p class="temp">Temp</p>
+                        <p class="wind">Wind</p>
+                        <p class="humid">Humidity</p>
+                    </div>
+                    <div class="card col s2 m2 l2 xl2 forecast">
+                        <p class="date">11/26/2021</p>
+                        <img src="" alt="">
+                        <p class="temp">Temp</p>
+                        <p class="wind">Wind</p>
+                        <p class="humid">Humidity</p>
+                    </div>
+            </div>
+         </div>
+      </div>
     </main>
-    
-    <script src="./assets/script.js"></script>
 </body>
+<script src="./assets/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
