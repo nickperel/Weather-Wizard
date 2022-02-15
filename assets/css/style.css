@@ -1,3 +1,7 @@
+:root {
+    --uv-index: rgb(155, 216, 155);
+}
+
 a {
     margin: 10px 0;
     width: 100%;
@@ -86,7 +90,7 @@ main {
 #main-uv {
     padding-left: 20px;
     padding-right: 20px;
-    background-color: lightgreen;
+    background-color: var(--uv-index);
     width: 50px;
 }
 
