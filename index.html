@@ -1,98 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Weather Dashboard</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Wizard</title>
+  </head>
+  <body>
     <main>
-        <!-- Header/Navbar goes here setup for future implementaion of nav btns-->
-        <nav>
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo center">Weather Dashboard</a>
-            </div>
-        </nav>
-      
-        <!-- Page Layout here -->
-        <div class="row">
-            <!-- City Search and Clear sections -->
-            <div class="col s12 m4 l3"> 
-                <div class="col" id="search-container">
-                    <form class="input-field">
-                        <i class="material-icons prefix">wb_sunny</i>
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix" id="placeholder">City Name</label>
-                        <button class="btn" id="search" type="submit">Search</button>
-                        <button class="btn" id="clear" type="submit">Clear History</button>
-                    </form>
-                </div>
+      <!-- Header/Navbar -->
+      <nav>
+        <div class="nav-wrapper">
+          <p class="brand-logo center page-title">Weather Wizard</p>
+        </div>
+      </nav>
 
-                <!-- Recent Search Section -->
-                <div class="btn-container col">
-                </div>
+      <!-- Page Layout -->
+      <div class="row layout-container">
+        <!-- City Search and Clear Sections -->
+        <div class="col s12 m4 l3">
+          <div class="col" id="search-container">
+            <form class="input-field">
+              <i class="material-icons prefix">filter_drama</i>
+              <input id="icon_prefix" type="text" class="validate" />
+              <label for="icon_prefix" id="placeholder">City Name</label>
+              <button class="btn" id="search" type="submit">Search</button>
+              <button class="btn" id="clear" type="submit">
+                Clear History
+              </button>
+            </form>
+          </div>
+
+          <!-- Recent Search Section -->
+          <div class="btn-container col"></div>
+        </div>
+
+        <!-- Main Display -->
+        <div class="col s12 m7 l8 selected-city">
+          <h2 class="heading">
+            <span id="jumbotron"></span>: <span id="today"></span>
+            <img src="" class="heading-icon" />
+          </h2>
+          <p>Temp: <span id="main-temp"></span> °F</p>
+          <p>Wind: <span id="main-wind"></span> MPH</p>
+          <p>Humidity: <span id="main-humid"></span> %</p>
+          <p id="uv-background">UV Index: <span id="main-uv"></span></p>
+        </div>
+
+        <!-- Five day forecast section -->
+        <div class="col s12 m7 l8 five-day-title">
+          <span>Five Day Forecast</span>
+        </div>
+        <div class="col s12 m7 l8">
+          <div class="row five-day">
+            <div class="card col s2 m2 l2 xl2 forecast">
+              <p class="date">2/14/2022</p>
+              <img src="" alt="" />
+              <p class="temp">Temp</p>
+              <p class="wind">Wind</p>
+              <p class="humid">Humidity</p>
             </div>
-  
-            <!-- Main Display -->
-            <div class="col s12 m7 l8 selected-city"> 
-                <h2 class="heading"><span id="jumbotron"></span>: <span id="today"></span> <img src="" class="heading-icon"></h2>
-                <p>Temp: <span id="main-temp"></span> °F</p>
-                <p>Wind: <span id="main-wind"></span> MPH</p>
-                <p>Humidity: <span id="main-humid"></span> %</p>
-                <span id="uv-background">UV Index: <span id="main-uv"></span></span>
+            <div class="card col s2 m2 l2 xl2 forecast">
+              <p class="date">11/26/2021</p>
+              <img src="" alt="" />
+              <p class="temp">Temp</p>
+              <p class="wind">Wind</p>
+              <p class="humid">Humidity</p>
             </div>
-            
-            <!-- Five day forecast section -->
-            <div class="col s12 m7 l8 five-day-title">
-                <span>5 Day Forecast</span>
+            <div class="card col s2 m2 l2 xl2 forecast">
+              <p class="date">11/26/2021</p>
+              <img src="" alt="" />
+              <p class="temp">Temp</p>
+              <p class="wind">Wind</p>
+              <p class="humid">Humidity</p>
             </div>
-            <div class="col s12 m7 l8"> 
-                <div class="row five-day">      
-                    <div class="card col s2 m2 l2 xl2 forecast">
-                        <p class="date">11/26/2021</p>
-                        <img src="" alt="">
-                        <p class="temp">Temp</p>
-                        <p class="wind">Wind</p>
-                        <p class="humid">Humidity</p>
-                    </div>
-                    <div class="card col s2 m2 l2 xl2 forecast">
-                        <p class="date">11/26/2021</p>
-                        <img src="" alt="">
-                        <p class="temp">Temp</p>
-                        <p class="wind">Wind</p>
-                        <p class="humid">Humidity</p>
-                    </div>
-                    <div class="card col s2 m2 l2 xl2 forecast">
-                        <p class="date">11/26/2021</p>
-                        <img src="" alt="">
-                        <p class="temp">Temp</p>
-                        <p class="wind">Wind</p>
-                        <p class="humid">Humidity</p>
-                    </div>
-                    <div class="card col s2 m2 l2 xl2 forecast">
-                        <p class="date">11/26/2021</p>
-                        <img src="" alt="">
-                        <p class="temp">Temp</p>
-                        <p class="wind">Wind</p>
-                        <p class="humid">Humidity</p>
-                    </div>
-                    <div class="card col s2 m2 l2 xl2 forecast">
-                        <p class="date">11/26/2021</p>
-                        <img src="" alt="">
-                        <p class="temp">Temp</p>
-                        <p class="wind">Wind</p>
-                        <p class="humid">Humidity</p>
-                    </div>
+            <div class="card col s2 m2 l2 xl2 forecast">
+              <p class="date">11/26/2021</p>
+              <img src="" alt="" />
+              <p class="temp">Temp</p>
+              <p class="wind">Wind</p>
+              <p class="humid">Humidity</p>
             </div>
-         </div>
+            <div class="card col s2 m2 l2 xl2 forecast">
+              <p class="date">11/26/2021</p>
+              <img src="" alt="" />
+              <p class="temp">Temp</p>
+              <p class="wind">Wind</p>
+              <p class="humid">Humidity</p>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
-</body>
-<script src="./assets/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+  <script src="./assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
